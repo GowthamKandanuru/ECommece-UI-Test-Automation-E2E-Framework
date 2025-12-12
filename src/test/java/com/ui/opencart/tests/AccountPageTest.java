@@ -10,9 +10,6 @@ import org.testng.annotations.*;
 import java.util.List;
 
 public class AccountPageTest extends BaseTest {
-
-
-
     Logger logger = LogManager.getLogger(AccountPageTest.class);
 
     @BeforeClass
