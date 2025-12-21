@@ -14,7 +14,7 @@ public class AccountPage {
     private WebDriver driver;
     private By logout = By.linkText("Logout");
     private By accountHeaders = By.cssSelector("div#content>h2");
-    private By searchBox = By.cssSelector("input[name='searc']");
+    private By searchBox = By.cssSelector("input[name='search']");
 
     private By searchButton = By.cssSelector("button.btn-default");
     ElementUtil  elementUtil;

@@ -1,8 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="UserManagementAPI" verbose="2">
-    <test name="Validation of Update Profile" preserve-order="true" >
-        <classes>
-            <class name="com.api.tests.UserManagementAPITest" />
-        </classes>
-    </test>
-</suite>
