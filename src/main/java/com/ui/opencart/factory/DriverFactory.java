@@ -51,7 +51,6 @@ public class DriverFactory {
             properties = new Properties();
             //mvn clean install -Denv="qa"
            String environment =  System.getProperty("env");
-           logger.info("Running test on Env: {}",environment);
             try {
                 if (environment == null) {
                     logger.info("No environment information provided");
@@ -66,6 +65,7 @@ public class DriverFactory {
                     }*/
                     fis = new FileInputStream("./src/test/resources/config/config." + environment + ".properties");
                     properties.load(fis);
+                    logger.info("Running test on Env: {}",environment);
                 }
             }catch (Exception e) {
                 e.printStackTrace();
