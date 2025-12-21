@@ -42,6 +42,6 @@ public class LoginPageTest extends BaseTest {
     @Test(priority = 3)
     public void loginTest() /*throws InterruptedException*/{
        accountPage  = loginPage.doLogin(properties.getProperty("username"), properties.getProperty("password"));
-        Assert.assertEquals(accountPage.getAccountPageTitle(), "Title");
+        Assert.assertEquals(accountPage.getAccountPageTitle(), "My Account");
     }
 }
