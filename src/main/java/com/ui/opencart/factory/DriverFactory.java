@@ -58,13 +58,13 @@ public class DriverFactory {
                     fis = new FileInputStream("./src/test/resources/config/config.properties");
                     properties.load(fis);
                 } else {
-                    if(environment.trim().equalsIgnoreCase("prod"))
+                    /*if(environment.trim().equalsIgnoreCase("prod"))
                     {
                         environment = "";
                     }else {
                         environment += ".";
-                    }
-                    fis = new FileInputStream("./src/test/resources/config/config." + environment + "properties");
+                    }*/
+                    fis = new FileInputStream("./src/test/resources/config/config." + environment + ".properties");
                     properties.load(fis);
                 }
             }catch (Exception e) {
