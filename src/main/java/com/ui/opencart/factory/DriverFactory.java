@@ -54,7 +54,7 @@ public class DriverFactory {
             try {
                 if (environment == null) {
                     logger.info("No environment information provided");
-                    fis = new FileInputStream("./src/test/resources/config/config.properties");
+                    fis = new FileInputStream("./src/test/resources/config/config.prod.properties");
                     properties.load(fis);
                 } else {
                     /*if(environment.trim().equalsIgnoreCase("prod"))
