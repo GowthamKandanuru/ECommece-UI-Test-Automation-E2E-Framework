@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
-<suite name="smoke">
+<suite name="critical">
 
-    <listeners>
+   <!-- <listeners>
         <listener class-name="com.ui.opencart.listeners.AllureTestListener" />
-    </listeners>
+    </listeners>-->
 
     <test name="Login Page Test">
        <!-- <parameter name="browser" value="chrome" />-->
