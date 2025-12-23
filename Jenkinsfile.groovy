@@ -55,7 +55,7 @@ pipeline
                             steps {
                                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                                     git 'https://github.com/GowthamKandanuru/ECommece-UI-Test-Automation-E2E-Framework.git'
-                                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regression.xml -Denv=qa"
+                                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/RegressionSuite.xml -Denv=qa"
 
                                 }
                             }
@@ -86,7 +86,7 @@ pipeline
                             steps {
                                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                                     git 'https://github.com/GowthamKandanuru/ECommece-UI-Test-Automation-E2E-Framework.git'
-                                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regression.xml"
+                                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/CriticalSuite.xml"
 
                                 }
                             }
