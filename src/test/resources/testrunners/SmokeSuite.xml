@@ -3,9 +3,9 @@
 
 <suite name="smoke">
 
-    <!--<listeners>
+    <listeners>
         <listener class-name="com.ui.opencart.listeners.AllureTestListener" />
-    </listeners>-->
+    </listeners>
 
     <test name="Login Page Test">
        <!-- <parameter name="browser" value="chrome" />-->
