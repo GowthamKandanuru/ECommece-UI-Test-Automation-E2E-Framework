@@ -170,7 +170,8 @@
                   <suiteXmlFiles>
                       <!--suppress UnresolvedMavenProperty -->
                       <suiteXmlFile>
-                          src/test/resources/testrunners/SmokeSuite.xml
+                         <!-- src/test/resources/testrunners/SmokeSuite.xml-->
+                          {suiteXmlFiles}
                       </suiteXmlFile>
                   </suiteXmlFiles>
                   <argLine>
