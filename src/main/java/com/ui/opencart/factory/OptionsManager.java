@@ -38,7 +38,7 @@ public class OptionsManager {
         fo = new FirefoxOptions();
 
         if (Boolean.parseBoolean(properties.getProperty("remote").trim())) {
-            co.setCapability("browserName", "firefox");
+            fo.setCapability("browserName", "firefox");
         }
         if (Boolean.parseBoolean(properties.getProperty("headless").trim())) {
             fo.addArguments("--headless");
