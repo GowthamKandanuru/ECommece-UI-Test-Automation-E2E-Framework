@@ -6,11 +6,18 @@ public class subStringExample {
 
         String txt = "GeeksForGeeks";
         String pat = "For";
+        if(txt.indexOf(pat) != -1)
+        {
+            System.out.println(txt.indexOf(pat));
+        }else {
+            System.out.println(txt.indexOf(pat));
+        }
         int n = txt.length();
         int m = pat.length();
-
+        int i;
+        boolean flag = false;
         // Iterate through txt
-        for (int i = 0; i <= n - m; i++) {
+        for (i = 0; i <= n - m; i++) {
 
             // Check for substring match
             int j;
@@ -25,12 +32,14 @@ public class subStringExample {
             // If we completed the inner loop, we found a match
             if (j == m) {
 
-                // Return starting index
-                System.out.println(i);
+                flag = true;
+                break;
             }
         }
-
-        // No match found
-        System.out.println(-1);
+        if(flag) {
+            System.out.println(i);
+        }else {
+            System.out.println("-1");
+        }
     }
 }

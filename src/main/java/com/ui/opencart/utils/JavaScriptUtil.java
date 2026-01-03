@@ -64,7 +64,7 @@ public class JavaScriptUtil {
     }
     public void scrollPageDown() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
     }
     public void scrollPageUp() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
