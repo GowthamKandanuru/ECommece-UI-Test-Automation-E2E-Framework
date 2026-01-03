@@ -3,6 +3,7 @@ test-output/
 build/
 reports/
 logs/
+screenshots/
 .mvn
 application.log
 ##############################
