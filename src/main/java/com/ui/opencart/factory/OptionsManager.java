@@ -23,8 +23,9 @@ public class OptionsManager {
 
         if (Boolean.parseBoolean(properties.getProperty("remote").trim())) {
             co.setCapability("browserName", "chrome");
+            co.setBrowserVersion("128.0");
             Map<String,Object> selenoidOptions = new HashMap<>();
-            selenoidOptions.put("screenResolution","1280*1024*24");
+            selenoidOptions.put("screenResolution","1280x1024x24");
             selenoidOptions.put("enableVNC", true);
             //selenoidOptions.put("name", properties.getProperty("testname"));
             co.setCapability("selenoid:options", selenoidOptions);
@@ -44,8 +45,9 @@ public class OptionsManager {
 
         if (Boolean.parseBoolean(properties.getProperty("remote").trim())) {
             fo.setCapability("browserName", "firefox");
+            fo.setBrowserVersion("125.0");
             Map<String,Object> selenoidOptions = new HashMap<>();
-            selenoidOptions.put("screenResolution","1280*1024*24");
+            selenoidOptions.put("screenResolution","1280x1024x24");
             selenoidOptions.put("enableVNC", true);
             //selenoidOptions.put("name", properties.getProperty("testname"));
             fo.setCapability("selenoid:options", selenoidOptions);
@@ -64,7 +66,7 @@ public class OptionsManager {
         if (Boolean.parseBoolean(properties.getProperty("remote"))) {
             eo.setCapability("browserName", "edge");
             Map<String,Object> selenoidOptions = new HashMap<>();
-            selenoidOptions.put("screenResolution","1280*1024*24");
+            selenoidOptions.put("screenResolution","1280x1024x24");
             selenoidOptions.put("enableVNC", true);
             //selenoidOptions.put("name", properties.getProperty("testname"));
             eo.setCapability("selenoid:options", selenoidOptions);
