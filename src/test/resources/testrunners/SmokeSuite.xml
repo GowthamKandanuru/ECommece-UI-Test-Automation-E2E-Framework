@@ -8,6 +8,7 @@
     </listeners>
 
     <test name="Login Page Test">
+
        <!-- <parameter name="browser" value="chrome" />-->
         <classes>
             <class name="com.ui.opencart.tests.LoginPageTest" />
