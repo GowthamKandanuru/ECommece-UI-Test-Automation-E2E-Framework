@@ -3,9 +3,9 @@
 
 <suite name="critical" parallel="tests" thread-count="2">
 
-   <!-- <listeners>
+    <listeners>
         <listener class-name="com.ui.opencart.listeners.AllureTestListener" />
-    </listeners>-->
+    </listeners>
 
     <test name="Login Page Test">
        <!-- <parameter name="browser" value="chrome" />-->
@@ -14,10 +14,10 @@
         </classes>
     </test>
 
-    <test name="Search Results Test">
+    <test name="Product Test">
        <!-- <parameter name="browser" value="chrome" />-->
         <classes>
-            <class name="com.ui.opencart.tests.SearchResultsTest" />
+            <class name="com.ui.opencart.tests.ProductPageTest" />
         </classes>
     </test>
 
