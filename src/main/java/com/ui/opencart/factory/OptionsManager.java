@@ -23,6 +23,11 @@ public class OptionsManager {
 
         if (Boolean.parseBoolean(properties.getProperty("remote").trim())) {
             co.setCapability("browserName", "chrome");
+            Map<String,Object> selenoidOptions = new HashMap<>();
+            selenoidOptions.put("screenResolution","1280*1024*24");
+            selenoidOptions.put("enableVNC", true);
+            //selenoidOptions.put("name", properties.getProperty("testname"));
+            co.setCapability("selenoid:options", selenoidOptions);
         }
         if (Boolean.parseBoolean(properties.getProperty("headless").trim())) {
             co.addArguments("--headless");
@@ -39,6 +44,11 @@ public class OptionsManager {
 
         if (Boolean.parseBoolean(properties.getProperty("remote").trim())) {
             fo.setCapability("browserName", "firefox");
+            Map<String,Object> selenoidOptions = new HashMap<>();
+            selenoidOptions.put("screenResolution","1280*1024*24");
+            selenoidOptions.put("enableVNC", true);
+            //selenoidOptions.put("name", properties.getProperty("testname"));
+            fo.setCapability("selenoid:options", selenoidOptions);
         }
         if (Boolean.parseBoolean(properties.getProperty("headless").trim())) {
             fo.addArguments("--headless");
@@ -53,6 +63,11 @@ public class OptionsManager {
         eo = new EdgeOptions();
         if (Boolean.parseBoolean(properties.getProperty("remote"))) {
             eo.setCapability("browserName", "edge");
+            Map<String,Object> selenoidOptions = new HashMap<>();
+            selenoidOptions.put("screenResolution","1280*1024*24");
+            selenoidOptions.put("enableVNC", true);
+            //selenoidOptions.put("name", properties.getProperty("testname"));
+            eo.setCapability("selenoid:options", selenoidOptions);
         }
         if (Boolean.parseBoolean(properties.getProperty("headless").trim())) {
             System.out.println("Running edge in headless mode");
