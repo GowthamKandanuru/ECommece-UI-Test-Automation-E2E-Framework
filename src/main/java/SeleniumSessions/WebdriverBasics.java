@@ -15,10 +15,7 @@ import org.openqa.selenium.support.ui.*;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class WebdriverBasics  {
 
@@ -51,5 +48,15 @@ public class WebdriverBasics  {
         String destPath = System.getProperty("user.dir") + "/screenshots/" + "image"+System.currentTimeMillis()+".png";
         File destFile = new File(destPath);
         FileUtils.copyFile(testResult, destFile);
+        Set<String> s = driver.getWindowHandles();
+
+        Iterator<String> i = s.iterator();
+        while (i.hasNext())
+        {
+            if (i.next().equals("f"))
+            {
+                driver.switchTo().window(i.next());
+            }
+        }
     }
 }
