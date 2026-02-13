@@ -30,6 +30,10 @@ public class BaseTest {
             *//*properties.setProperty("browser", browserName);*//*
             System.out.println(browserName);
         }*/
+        if(System.getProperty("Browser")!=null)
+        {
+            properties.setProperty("browser", System.getProperty("Browser"));
+        }
         driver = driverFactory.initDriver(properties);
         loginPage = new LoginPage(driver);
         softAssert = new SoftAssert();
