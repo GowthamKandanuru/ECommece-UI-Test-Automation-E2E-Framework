@@ -23,6 +23,7 @@ public class WebTableHandling {
         Thread.sleep(5000);
         LinkedList<String> list = elementUtil.getElementsTextList(By.xpath(String.format(locator, "Joe Root")));
         System.out.println(list);
+        System.out.println("gowtham");
     }
 
 }

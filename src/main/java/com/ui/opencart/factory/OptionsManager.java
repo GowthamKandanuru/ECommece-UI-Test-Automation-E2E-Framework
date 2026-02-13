@@ -37,6 +37,8 @@ public class OptionsManager {
             co.addArguments("--incognito");
         }
         co.addArguments("--guest");
+        co.addArguments("--start-maximized");
+        co.addArguments("--disable-blink-features=AutomationControlled");
         return co;
     }
 

@@ -96,9 +96,9 @@ public class DriverFactory {
         try {
             if (environment == null) {
                 logger.info("No environment information provided");
-                fis = new FileInputStream("./src/test/resources/config/config.prod.properties");
+                fis = new FileInputStream("./src/test/resources/config/config.local.properties");
                 properties.load(fis);
-                logger.info("Running test on Env: PROD");
+                logger.info("Running test on Env: Local");
             } else {
                     /*if(environment.trim().equalsIgnoreCase("prod"))
                     {

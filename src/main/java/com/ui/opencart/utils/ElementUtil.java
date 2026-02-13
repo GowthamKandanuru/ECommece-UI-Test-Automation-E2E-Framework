@@ -576,7 +576,7 @@ public class ElementUtil {
   //  @Step("waiting for the expected title...")
     public String waitForTitleIs(String title, int timeOut) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
-        LOGGER.info(driver.getTitle());
+        LOGGER.info(driver.getTitle()+" Page Title");
         try {
             if (wait.until(ExpectedConditions.titleIs(title))) {
                 return driver.getTitle();
