@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'windows' // Use Windows agent
-    }
+    agent any
 
     parameters {
         // Environment selection
