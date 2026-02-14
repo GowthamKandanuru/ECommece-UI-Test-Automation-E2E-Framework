@@ -4,6 +4,7 @@ import com.ui.opencart.base.BaseTest;
 import com.ui.opencart.constants.AppConstants;
 import com.ui.opencart.errors.AppError;
 import com.ui.opencart.factory.DriverFactory;
+import com.ui.opencart.listeners.RetryListener;
 import com.ui.opencart.pages.AccountPage;
 import io.qameta.allure.*;
 import org.apache.logging.log4j.LogManager;
@@ -22,7 +23,7 @@ public class LoginPageTest extends BaseTest {
 
     @Description("Checking Login Title")
     @Severity(SeverityLevel.MINOR)
-    @Test(priority = 1)
+    @Test(priority = 1,retryAnalyzer = RetryListener.class)
     public void loginPageTileTest()
     {
         String actual =  loginPage.getLoginPageTitle();
