@@ -5,14 +5,14 @@ pipeline {
         // Environment selection
         choice(
                 name: 'ENVIRONMENT',
-                choices: ['local', 'dev', 'qa', 'prod'],
+                choices: ['qa','local','prod','dev'],
                 description: 'Select the environment to run tests against'
         )
 
         // Browser selection
         choice(
                 name: 'BROWSER',
-                choices: ['chrome', 'firefox', 'edge'],
+                choices: ['firefox','chrome','edge'],
                 description: 'Select browser for test execution'
         )
 
