@@ -28,6 +28,7 @@ public class LoginPageTest extends BaseTest {
     {
         String actual =  loginPage.getLoginPageTitle();
         softAssert.assertEquals(actual, AppConstants.LOGIN_PAGE_TITLE, AppError.TITLE_NOT_FOUND);
+        assertAll();
     }
 
     @Description("Checking forgot password link")

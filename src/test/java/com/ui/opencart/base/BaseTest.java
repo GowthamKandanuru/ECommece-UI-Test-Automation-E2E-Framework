@@ -44,4 +44,9 @@ public class BaseTest {
     {
         driver.quit();
     }
+
+    protected void assertAll()
+    {
+        softAssert.assertAll();
+    }
 }
