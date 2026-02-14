@@ -26,49 +26,6 @@ pipeline {
                 visibleItemCount: 9,
                 multiSelectDelimiter: ','
         )
-
-        // Execute suites in parallel or sequential
-        choice(
-                name: 'EXECUTION_MODE',
-                choices: ['SEQUENTIAL', 'PARALLEL'],
-                description: 'Run selected suites sequentially or in parallel?'
-        )
-
-        // Specific test groups/tags (optional)
-        string(
-                name: 'TEST_GROUPS',
-                defaultValue: '',
-                description: 'Enter specific TestNG groups to run (comma-separated, e.g., smoke,critical). Leave empty to run all groups in selected suites.'
-        )
-
-        // Exclude specific groups
-        string(
-                name: 'EXCLUDE_GROUPS',
-                defaultValue: '',
-                description: 'Enter TestNG groups to exclude (comma-separated). Leave empty to include all.'
-        )
-
-        // Thread count for parallel execution
-        choice(
-                name: 'THREAD_COUNT',
-                choices: ['1', '2', '3', '4', '5', '8', '10'],
-                description: 'Number of parallel threads (for parallel suite execution)'
-        )
-
-        // Parallel execution level within suite
-        choice(
-                name: 'PARALLEL_MODE',
-                choices: ['none', 'methods', 'tests', 'classes', 'instances'],
-                description: 'TestNG parallel execution mode within each suite'
-        )
-
-        // Headless mode
-        booleanParam(
-                name: 'HEADLESS',
-                defaultValue: true,
-                description: 'Run tests in headless mode?'
-        )
-
         // Generate reports
         booleanParam(
                 name: 'GENERATE_ALLURE_REPORT',
@@ -82,21 +39,12 @@ pipeline {
                 defaultValue: true,
                 description: 'Capture screenshots on test failures?'
         )
-
-        // Retry failed tests
-        choice(
-                name: 'RETRY_COUNT',
-                choices: ['0', '1', '2', '3'],
-                description: 'Number of times to retry failed tests (0 = no retry)'
-        )
-
         // Continue on failure
         booleanParam(
                 name: 'CONTINUE_ON_FAILURE',
                 defaultValue: true,
                 description: 'Continue executing remaining suites if one suite fails?'
         )
-
         // Clean workspace before build
         booleanParam(
                 name: 'CLEAN_WORKSPACE',
@@ -141,9 +89,8 @@ pipeline {
                         echo Computer: %COMPUTERNAME%
                         echo User: %USERNAME%
                         echo Workspace: %WORKSPACE%
-                        echo Java Version:
+                        echo Java Version: 24.0.2
                         java -version
-                        echo.
                         echo Maven Version:
                         mvn -version
                     '''
@@ -159,13 +106,6 @@ pipeline {
                     echo "Base URL: ${BASE_URL}"
                     echo "Browser: ${params.BROWSER}"
                     echo "Selected Test Suites: ${params.TEST_SUITES}"
-                    echo "Execution Mode: ${params.EXECUTION_MODE}"
-                    echo "Test Groups (Include): ${params.TEST_GROUPS ?: 'All groups'}"
-                    echo "Exclude Groups: ${params.EXCLUDE_GROUPS ?: 'None'}"
-                    echo "Thread Count: ${params.THREAD_COUNT}"
-                    echo "Parallel Mode: ${params.PARALLEL_MODE}"
-                    echo "Headless Mode: ${params.HEADLESS}"
-                    echo "Retry Count: ${params.RETRY_COUNT}"
                     echo "Continue on Failure: ${params.CONTINUE_ON_FAILURE}"
                     echo "=================================================="
 
@@ -271,14 +211,8 @@ pipeline {
             steps {
                 script {
                     def suites = env.VALID_SUITES.split(',')
-
-                    if (params.EXECUTION_MODE == 'PARALLEL') {
-                        echo "Executing ${suites.size()} suites in PARALLEL mode..."
-                        executeTestSuitesInParallel(suites)
-                    } else {
                         echo "Executing ${suites.size()} suites in SEQUENTIAL mode..."
                         executeTestSuitesSequentially(suites)
-                    }
                 }
             }
         }
@@ -493,7 +427,10 @@ def buildMavenCommand(suiteName) {
     def command = "mvn test -Dsurefire.suiteXmlFiles=${suiteFile}"
 
     // Add browser
-    command += " -Dbrowser=${params.BROWSER}"
+    command += " -DBrowser=${params.BROWSER}"
+
+    // Add environment
+    command += " -Denv=${params.ENVIRONMENT}"
 
  /*   // Add base URL
     command += " -DbaseUrl=${BASE_URL}"
