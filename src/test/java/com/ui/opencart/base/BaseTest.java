@@ -27,7 +27,7 @@ public class BaseTest {
         properties = driverFactory.initprop();
         /*if(browserName!=null)
         {
-            *//*properties.setProperty("browser", browserName);*//*
+            properties.setProperty("browser", browserName);
             System.out.println(browserName);
         }*/
         if(System.getProperty("Browser")!=null)
