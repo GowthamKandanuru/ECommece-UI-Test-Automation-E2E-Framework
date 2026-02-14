@@ -368,7 +368,16 @@ pipeline {
 
                     try {
                         def testResults = junit(testResults: '**/target/surefire-reports/*.xml', allowEmptyResults: true)
-
+                        def passRate = "0.00"
+                        if (testResults.totalCount > 0) {
+                            try {
+                                def rate = (testResults.passCount * 100) / testResults.totalCount
+                                passRate = rate.setScale(2, java.math.RoundingMode.HALF_UP).toString()
+                            } catch (Exception e) {
+                                echo "Error calculating pass rate: ${e.message}"
+                                passRate = "N/A"
+                            }
+                        }
                         def summary = """
 ========== TEST EXECUTION SUMMARY ==========
 Environment: ${params.ENVIRONMENT}
@@ -382,7 +391,7 @@ Passed: ${testResults.passCount} ✓
 Failed: ${testResults.failCount} ✗
 Skipped: ${testResults.skipCount} ⊘
 
-Pass Rate: ${testResults.totalCount > 0 ? ((testResults.passCount * 100) / testResults.totalCount).round(2) : 0}%
+Pass Rate: ${passRate}%
 ============================================
 """
                         echo summary
