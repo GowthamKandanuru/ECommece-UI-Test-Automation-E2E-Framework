@@ -125,7 +125,7 @@ pipeline {
         SUREFIRE_REPORTS = "${env.WORKSPACE}\\target\\surefire-reports"
 
         // Maven options
-        MAVEN_OPTS = "-Xmx2048m -XX:MaxPermSize=512m"
+        MAVEN_OPTS = "-Xmx2048m -Xms512m"
     }
 
     stages {
